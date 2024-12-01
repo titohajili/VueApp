@@ -5,14 +5,11 @@
 
 <script>
 export default {
-    props:{
-        h2:{
-            type:String,
-            default: 'Expense Tracker'
-        }
+    name: 'HeaderC',
+    props: {
+        msg: String
     }
 }
-
 
 </script>
 

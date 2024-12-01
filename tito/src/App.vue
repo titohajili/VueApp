@@ -1,7 +1,10 @@
 <template>
 
-  
+  <Headers/>
   <Balance/>
+  <income-expenses/>
+  <TransactionList/>
+  <AddTransaction/>
 
 <div class="container">
 
@@ -11,8 +14,11 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
 import Balance from '@/components/Balance.vue';
+import Headers from '@/components/Headers.vue';
+import IncomeExpenses from '@/components/IncomeExpenses.vue';
+import TransactionList from '@/components/TransactionList.vue'
+import AddTransaction from '@/components/AddTransaction.vue'
 
 
 export default {
@@ -20,8 +26,11 @@ export default {
      name: "AppHeader",
     
     components: {
-        Header,
-        Balance
+        Headers,
+        Balance,
+        IncomeExpenses,
+        TransactionList,
+        AddTransaction
     },
 }
 
