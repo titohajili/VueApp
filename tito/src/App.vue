@@ -2,8 +2,8 @@
 
   <Headers/>
   <Balance/>
-  <income-expenses/>
-  <TransactionList/>
+  <IncomeExpenses/>
+  <TransactionList :transactions="transactions" />
   <AddTransaction/>
 
 <div class="container">
@@ -20,7 +20,7 @@ import IncomeExpenses from '@/components/IncomeExpenses.vue';
 import TransactionList from '@/components/TransactionList.vue'
 import AddTransaction from '@/components/AddTransaction.vue'
 
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 const transactions = ref([
     { id: 1, text: 'Paycheck', amount: 800 },
