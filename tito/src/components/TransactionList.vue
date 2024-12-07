@@ -1,30 +1,21 @@
 <template>
-
-<h3>History</h3>
-      <ul id="list" class="list">
-        <li v-for="transaction in transactions" :key="transaction.id" :class="transaction.amount < 0 ? 'minus' : 'plus'">
-            {{ transaction.text }} <span>${{ transaction.amount }}</span> <button class="delete-btn">x</button>
-        </li>
-
-      
-        <!-- 
-
-        <li class="plus">
-          Paycheck <span>$800</span><button class="delete-btn">x</button>
-        </li> -->
-
-      </ul>
-
+  <TransactionHistory
+    :transactions="transactions"
+    @deleteTransaction="handleDelete"
+  />
 </template>
 
 <script setup>
-  import { defineProps } from 'vue';
+import TransactionHistory from './TransactionHistory.vue';
+import { ref } from 'vue';
 
-  const props = defineProps({
-    transactions: {
-      type: Array,
-      required: true,
-    }
-  });
+const transactions = ref([
+  { id: 1, text: 'Salary', amount: 500 },
+  { id: 2, text: 'Groceries', amount: -50 },
+  { id: 3, text: 'Car Repair', amount: -150 },
+]);
+
+const handleDelete = (id) => {
+  transactions.value = transactions.value.filter((transaction) => transaction.id !== id);
+};
 </script>
-

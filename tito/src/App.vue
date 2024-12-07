@@ -1,13 +1,13 @@
 <template>
 
-  <Headers/>
-  <Balance/>
-  <IncomeExpenses/>
-  <TransactionList :transactions="transactions" />
-  <AddTransaction/>
-
-<div class="container">
-
+  
+  <div class="container">
+    
+    <Headers/>
+    <Balance :total="total" />
+    <IncomeExpenses/>
+    <TransactionList :transactions="transactions" />
+    <AddTransaction/>
 
 </div>
 
@@ -28,6 +28,12 @@ const transactions = ref([
     { id: 3, text: 'Groceries', amount: -50 },
     { id: 4, text: 'Gas', amount: -100 },
   ]);
+
+  const total = computed(() => {
+    return transactions.value.reduce((acc, transaction) => {
+      return acc + transaction.amount;
+    }, 0);
+  });
 
 
 </script>
